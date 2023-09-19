@@ -3,6 +3,6 @@ bin/
 .project
 .settings/
 .metadata/
+/build/
 libs/
-
 src/conexao.properties
