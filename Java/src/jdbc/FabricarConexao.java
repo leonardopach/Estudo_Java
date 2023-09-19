@@ -12,7 +12,7 @@ public class FabricarConexao {
 		try {
 			Properties prop = getProperties();
 			final String url = prop.getProperty("banco.url");
-			final String usuario = prop.getProperty("banco.root");
+			final String usuario = prop.getProperty("banco.usuario");
 			final String senha = prop.getProperty("banco.senha");
 
 			return DriverManager.getConnection(url, usuario, senha);
