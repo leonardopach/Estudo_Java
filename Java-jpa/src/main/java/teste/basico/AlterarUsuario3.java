@@ -6,21 +6,22 @@ import javax.persistence.Persistence;
 
 import modelo.basico.Usuario;
 
-public class NovoUsuario {
-
+public class AlterarUsuario3 {
 	public static void main(String[] args) {
-		
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("Java-jpa");
 		EntityManager em = emf.createEntityManager();
-		
-		Usuario novoUsuario = new Usuario("Gabriel", "Gabriel@gmail.com");
-		
+
 		em.getTransaction().begin();
-		em.persist(novoUsuario);
+
+		Usuario usuario = em.find(Usuario.class, 2L);
+		usuario.setNome("silva foi");
+		// tira o objeto do estado gerenciados
+		em.detach(usuario);
+
+		em.merge(usuario);
+
 		em.getTransaction().commit();
-		
 		em.close();
 		emf.close();
-		
 	}
 }
