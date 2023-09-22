@@ -1,4 +1,4 @@
-module app.calculo {
+open module app.calculo {
 
 	exports br.com.leo.app.calculo;
 	requires transitive app.logging;
